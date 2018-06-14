@@ -1,7 +1,7 @@
 """
-:author: Anastasiia-Khab
+:authors: Anastasiia-Khab, Anna Bretsko
 :chapter: 7
-: tasks: 323
+: tasks: 323, 325
 """
 
 
@@ -15,12 +15,12 @@ def task_323(num):
     if num == 0:
         naturals.append(0)
     for natural in range(1, num):
-        if gcd(natural, num) == 1:
+        if _gcd(natural, num) == 1:
             naturals.append(natural)
     return naturals
 
 
-def gcd(num1, num2):
+def _gcd(num1, num2):
     """
     Calculate the Greatest Common Divisor of num1 and num2.
 
@@ -34,3 +34,23 @@ def gcd(num1, num2):
     while num2:
         num1, num2 = num2, num1 % num2
     return num1
+
+
+def task_325(num):
+    """
+    Takes input of natural number and returns all its primes dividers.
+    :param num: natural number
+    :return: list of prime numbers
+    """
+    naturals = []
+    if num == 0:
+        naturals.append(0)
+    for natural in range(1, num + 1):
+        if _gcd(natural, num) == natural:
+            check_if_divide = True
+            for natural1 in range(2, natural):
+                if _gcd(natural1, natural) == natural1:
+                    check_if_divide = False
+            if check_if_divide:
+                naturals.append(natural)
+    return naturals

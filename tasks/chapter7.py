@@ -1,7 +1,7 @@
 """
-:author: Anastasiia-Khab
+:authors: Anastasiia-Khab, Anna Bretsko
 :chapter: 7
-: tasks: 224
+: tasks: 224, 225
 
 """
 
@@ -37,3 +37,14 @@ def task_224_find_other_dividers(num):
             dividers += task_224_find_other_dividers(int(num / natural))
             break
     return dividers
+
+
+def task_225(num):
+    """
+    Takes natural number returns every q if parameter is divided
+    by q power of two but not divided by q power of three.
+    :param num: natural number
+    :return: list of natural numbers
+    """
+    return [q_num for q_num in range(1, (num + 1))
+            if not num % (q_num ** 2) and num % (q_num ** 3)]
