@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko, Partsey
+:authors: Anastasiia-Khab, Anna Bretsko, Partsey, Ihor Soroka
 :chapter: 4
-: tasks: 86a, 107, 86b, 108, 88b
+: tasks: 86a, 107, 86b, 108, 88b, 87
 
 """
 
@@ -71,3 +71,20 @@ def task_88_b(number):
         number = number // 10
 
     return new_number
+
+
+def task_87(nnumber, mnumber):
+    '''
+    There are given natural numbers n, m. Get the sum of the m of the last digits of the number n.
+
+    :param nnumber: int - natural number.
+    :param mnumber: int - natural number.
+    :return: int - natural number.
+    '''
+
+    amount = 0
+    for dig in reversed(str(nnumber)):
+        if mnumber > 0:
+            amount += int(dig)
+            mnumber -= 1
+    return amount
