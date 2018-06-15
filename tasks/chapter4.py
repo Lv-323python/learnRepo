@@ -1,9 +1,11 @@
 """
-:author: Anastasiia-Khab
+:authors: Anastasiia-Khab, Anna Bretsko
 :chapter: 4
-: tasks: 86a, 107
+: tasks: 86a, 107, 86b, 108
 
 """
+
+
 def task_86_a(num):
     """
     Checks how many digits contains inputed natural number
@@ -26,3 +28,26 @@ def task107(m_int):
     while 4 ** k < m_int:
         k += 1
     return k - 1
+
+
+def task_86_b(num):
+    """
+    Takes natural number and returns the sum of digits of param.
+    :param num: natural number
+    :return: natural number
+    """
+    return sum(map(int, str(num)))
+
+
+def task_108(num):
+    """
+    Takes a natural number anad returns the smallest number represented
+    as 2^r which is greater than initial param.
+    :param num: natural number
+    :return: natural number
+    """
+    if num == 2:
+        return 1
+    elif num == 1:
+        return 0
+    return 2 ** (num - 1).bit_length()
