@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
+:authors: Anastasiia-Khab, Anna Bretsko, Bondar Artem
 :chapter: 4
-: tasks: 86a, 107, 86b, 108
+: tasks: 86a, 107, 86b, 108, 88c
 
 """
 
@@ -51,3 +51,12 @@ def task_108(num):
     elif num == 1:
         return 0
     return 2 ** (num - 1).bit_length()
+
+
+def task_88_c(num=0):
+    """
+    Function takes a number and changes first and last num in number
+    """
+    newstr = str(num)
+    numstr = newstr[-1] + newstr[1:-1:] + newstr[0]
+    return int(numstr)

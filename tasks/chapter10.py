@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
+:authors: Anastasiia-Khab, Anna Bretsko, Bondar Artem
 :chapter: 7
-: tasks: 323, 325
+: tasks: 323, 325, 331b
 """
 
 
@@ -54,3 +54,18 @@ def task_325(num):
             if check_if_divide:
                 naturals.append(natural)
     return naturals
+
+
+def task_331_b(num=0):
+    """
+    Function takes a number and finds sum of sqrt of the number
+    """
+    answrs = []
+    for x_num in range(0, num):
+        for y_num in range(0, num):
+            for z_num in range(0, num):
+                if (x_num * x_num + y_num * y_num + z_num * z_num) == num:
+                    values_xyz = [x_num, y_num, z_num]
+                    print(values_xyz)
+                    answrs.append(values_xyz)
+    return answrs

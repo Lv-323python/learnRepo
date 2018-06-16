@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
+:authors: Anastasiia-Khab, Anna Bretsko, Bondar Artem
 :chapter: 7
-: tasks: 224, 225
+: tasks: 224, 225, 243b
 
 """
 
@@ -31,3 +31,30 @@ def task_225(num):
     """
     return [q_num for q_num in range(1, (num + 1))
             if not num % (q_num ** 2) and num % (q_num ** 3)]
+
+
+def task_178_d(startn=0, lastn=0):
+    """
+    Function which finds all numbers in range a^k<ak<k!
+    """
+    import math
+    count = 0
+    for k in range(startn, lastn + 1):
+        ind = 1
+        if k > 2 ** ind:
+            if math.factorial(k) > k:
+                count = count + 1
+        ind += 1
+    return count
+
+def task_243_b(num=0):
+    """
+    Function which finds sum of sqrt of the number
+    """
+    answrs = []
+    for x_num in range(0, num):
+        for y_num in range(0, num):
+            if (x_num * x_num + y_num * y_num) == num:
+                values_xy = [x_num, y_num]
+                answrs.append(values_xy)
+    return answrs
