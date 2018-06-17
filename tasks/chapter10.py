@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
-:chapter: 7
-: tasks: 323, 325
+:authors: Anastasiia-Khab, Anna Bretsko, mixa1901
+:chapter: 10
+: tasks: 323, 325, 332
 """
 
 
@@ -54,3 +54,50 @@ def task_325(num):
             if check_if_divide:
                 naturals.append(natural)
     return naturals
+
+
+def task_332(num):
+    """
+    main func to make task 322
+    :param num: int
+    :return: tuple
+    """
+
+    # find x
+    x_num = _num_plus(num)
+    num -= x_num**2
+
+    # find y
+    y_num = _num_plus(num)
+    num -= y_num**2
+
+    # find z
+    z_num = _num_plus(num)
+    num -= z_num**2
+
+    # find t
+    t_num = _num_plus(num)
+    num -= t_num**2
+
+    return x_num, y_num, z_num, t_num
+
+
+def _num_plus(num):
+    """
+    funct returns the most related number power of 2
+    :param num: int
+    :return: int
+    """
+    counter = 0
+    while True:
+
+        # if counter power 2 equals given number return result
+        if counter**2 == num:
+            return counter
+
+        # else if counter power 2 more than given number break and set counter to be -1
+        elif counter**2 >= num:
+            counter -= 1
+            break
+        counter += 1
+    return counter

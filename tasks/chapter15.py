@@ -1,8 +1,10 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
+:authors: Anastasiia-Khab, Anna Bretsko, mixa1901
 :chapter: 15
-: tasks: 554, 555
+: tasks: 554, 555, 568
 """
+from itertools import product
+from ast import literal_eval
 
 
 def task_554(num):
@@ -36,3 +38,31 @@ def task_555(num):
         res = [1 if i == 0 or i == len(res) else res[i - 1] + res[i] for i in range(len(res) + 1)]
         triangle.append(res)
     return triangle
+
+
+def task_568(m_num):
+    """
+    check if given number can be gotten by inserting +, -
+    into 1,2,3,4,5,6,7,8,9 sequence between different numbers
+    :param m_num: int
+    :return: str
+    """
+
+    sequence = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    # add %s between numbers in order to insert particular signs
+    expr = '%s'.join([str(number) for number in sequence])
+
+    signs = ["+", "-", ""]
+
+    # iterate through every possible combination of sighns
+    for item in product(signs, repeat=len(sequence) - 1):
+
+        # get expression by inserting signs
+        full_expr = expr % item
+
+        # check if expression matches given number
+        if literal_eval(full_expr) == m_num:
+            return '%s=%s' % (full_expr, m_num)
+
+    return "It's not possible to get %s from 1, 2, 3, 4, 5, 6, 7, 8, 9 sequence" % m_num
