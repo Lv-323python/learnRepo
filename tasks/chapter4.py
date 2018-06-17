@@ -1,8 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
+:authors: Anastasiia-Khab, Anna Bretsko, mixa1901
 :chapter: 4
-: tasks: 86a, 107, 86b, 108
-
+: tasks: 86a, 88, 107, 86b, 108
 """
 
 
@@ -51,3 +50,12 @@ def task_108(num):
     elif num == 1:
         return 0
     return 2 ** (num - 1).bit_length()
+
+
+def task_88_d(num):
+    """
+    Add 1 to the start and to the end of a given number
+    :param num: int
+    :return: int
+    """
+    return int("1" + str(num) + "1")
