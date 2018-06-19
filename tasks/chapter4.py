@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
+:authors: Anastasiia-Khab, Anna Bretsko, Partsey
 :chapter: 4
-: tasks: 86a, 107, 86b, 108
+: tasks: 86a, 107, 86b, 108, 88b
 
 """
 
@@ -18,7 +18,7 @@ def task_86_a(num):
     return number_of_digits
 
 
-def task107(m_int):
+def task_107(m_int):
     """
     Given integer m_int >1. Returns max integer k, that 4**k<m_int
     :param m_int: type(m_int)==int
@@ -51,3 +51,23 @@ def task_108(num):
     elif num == 1:
         return 0
     return 2 ** (num - 1).bit_length()
+
+
+def task_88_b(number):
+    """
+    Return number with reversed order of digits
+
+    :param number: input number
+    :return: reversed number
+    """
+    new_number = 0
+
+    while number > 0:
+
+        last_digit_number = number % 10
+
+        new_number = new_number * 10 + last_digit_number
+
+        number = number // 10
+
+    return new_number

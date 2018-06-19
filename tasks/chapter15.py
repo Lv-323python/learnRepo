@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko
+:authors: Anastasiia-Khab, Anna Bretsko, Partsey
 :chapter: 15
-: tasks: 554, 555
+: tasks: 554, 555, 562
 """
 
 
@@ -36,3 +36,36 @@ def task_555(num):
         res = [1 if i == 0 or i == len(res) else res[i - 1] + res[i] for i in range(len(res) + 1)]
         triangle.append(res)
     return triangle
+
+
+
+def task_562(n_val):
+    """
+    Return all numbers less or equal to n_val if last digits of number**2 == number
+
+    :param n_val: max possible number
+    :return: list of numbers that satisfy condition
+    """
+    matched_numbers = list()
+
+    for number in range(1, n_val + 1):
+        number_copy = number
+
+        squared = number * number
+
+        match = True
+        while number > 0:
+            last_digit_number = number % 10
+            last_digit_squared = squared % 10
+
+            if last_digit_number != last_digit_squared:
+                match = False
+                break
+
+            number = number // 10
+            squared = squared // 10
+
+        if match:
+            matched_numbers.append(number_copy)
+
+    return matched_numbers
