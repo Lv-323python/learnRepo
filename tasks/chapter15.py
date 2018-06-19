@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko, Partsey
+:authors: Anastasiia-Khab, Anna Bretsko, Partsey, Ihor Soroka
 :chapter: 15
-: tasks: 554, 555, 562
+: tasks: 554, 555, 562, 559
 """
 
 
@@ -14,8 +14,8 @@ def task_554(num):
     :return: list of tupels 3 natural number each
     """
     pifagors_triangles = []
-    for natural_1 in range(1, num+1):
-        for natural_2 in range(1, num+1):
+    for natural_1 in range(1, num + 1):
+        for natural_2 in range(1, num + 1):
             natural_3 = (natural_1 ** 2 + natural_2 ** 2) ** 0.5
             if natural_3 <= num and \
                     natural_3 % 1 == 0:
@@ -69,3 +69,23 @@ def task_562(n_val):
             matched_numbers.append(number_copy)
 
     return matched_numbers
+
+
+def task_559(nnumber):
+    '''
+    There is given a natural number n. Find all the smaller number n Mersa
+        (A simple number is called the number of Mers, if it can
+        be represented as ((2 ** n) - 1), where p is also a simple number).
+
+    :param nnumber: int - natural number.
+    :return: list: int natural numbers.
+    '''
+
+    nnumber -= 1
+    res = []
+    while nnumber > 0:
+        for i in range(nnumber + 1):
+            if (2 ** i) - 1 == nnumber:
+                res.append(nnumber)
+        nnumber -= 1
+    return res

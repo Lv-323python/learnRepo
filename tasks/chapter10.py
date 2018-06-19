@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko, Partsey
+:authors: Anastasiia-Khab, Anna Bretsko, Partsey, Ihor Soroka
 :chapter: 7
-: tasks: 323, 325, 331
+: tasks: 323, 325, 331, 329
 """
 
 
@@ -90,3 +90,25 @@ def task_331(number):
         return number_a, number_b, number_c
 
     return False
+
+
+def task_329(nnumber, mnumber):
+    '''
+    There are given natural numbers n, m. Get all smaller n natural numbers,
+        the square of the sum of digits equal to m.
+
+    :param nnumber: int - natural number.
+    :param mnumber: int - natural number.
+    :return: list: int natural numbers.
+    '''
+
+    nnumber -= 1
+    res = []
+    while nnumber > 0:
+        amount = 0
+        for dig in str(nnumber):
+            amount += int(dig)
+        if (amount ** 2) == mnumber:
+            res.append(nnumber)
+        nnumber -= 1
+    return res

@@ -1,7 +1,7 @@
 """
-:authors: Anastasiia-Khab, Anna Bretsko, Partsey
+:authors: Anastasiia-Khab, Anna Bretsko, Partsey, Ihor Soroka
 :chapter: 7
-: tasks: 224, 225, 178g, 243
+: tasks: 224, 225, 178g, 243, 178_b, 226
 
 """
 
@@ -19,7 +19,6 @@ def task_224(num):
         if num % natural == 0:
             dividers.append(natural)
     return dividers
-
 
 
 def task_225(num):
@@ -80,3 +79,39 @@ def task_243(number):
     if found:
         return number_x, number_y
     return False
+
+
+def task_178_b(*args):
+    '''
+    There are given natural numbers n, a.1, ..., a.n. Determine the number of members of
+        multiple 3 and non-multiple 5 a.k sequences a.1, ..., a.n.
+
+    :param args: int - natural numbers.
+    :return: int - natural number.
+    '''
+
+    amount = 0
+    for arg in args:
+        if arg % 3 == 0 and arg % 5 != 0:
+            amount += 1
+    return amount
+
+
+def task_226(nnumber, mnumber):
+    '''
+    There are given natural numbers m, n. Get all of them
+        natural total multiples, less m * n.
+
+    :param nnumber: int - natural number.
+    :param mnumber: int - natural number.
+    :return: list: int natural numbers.
+    '''
+
+    deduction = max(nnumber, mnumber)
+    start = mnumber * nnumber - deduction
+    amount = []
+    while start >= nnumber and start >= mnumber:
+        if start % nnumber == 0 and start % mnumber == 0:
+            amount.append(start)
+        start -= deduction
+    return amount
